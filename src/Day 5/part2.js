@@ -36,15 +36,11 @@ for (; i < input.length; i++) {
     let matches = input[i]
         .matchAll(/(?<qty>\d+)\s+from\s+(?<src>\d+)\s+to\s+(?<dst>\d+)/gi)
         .next().value.groups;
-    stacks[parseInt(matches.dst) - 1].push(
-        ...stacks[parseInt(matches.src) - 1].slice(
-            stacks[parseInt(matches.src) - 1].length - matches.qty,
-            stacks[parseInt(matches.src) - 1].length
-        )
-    );
+    let transit = [];
     for (let j = 0; j < matches.qty; j++) {
-        stacks[parseInt(matches.src) - 1].pop();
+        transit.push(stacks[parseInt(matches.src) - 1].pop());
     }
+    stacks[parseInt(matches.dst) - 1].push(...transit.reverse());
 }
 
 let result = "";
