@@ -37,10 +37,9 @@ for (; i < input.length; i++) {
         .matchAll(/(?<qty>\d+)\s+from\s+(?<src>\d+)\s+to\s+(?<dst>\d+)/gi)
         .next().value.groups;
     for (let j = 0; j < matches.qty; j++) {
-        if (crate)
-            stacks[parseInt(matches.dst) - 1].push(
-                stacks[parseInt(matches.src) - 1].pop()
-            );
+        stacks[parseInt(matches.dst) - 1].push(
+            stacks[parseInt(matches.src) - 1].pop()
+        );
     }
 }
 
