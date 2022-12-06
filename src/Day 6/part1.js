@@ -18,7 +18,7 @@ for (let char of input) {
 
     startPos++;
 
-    if (buffer.length == 14) break;
+    if (buffer.length == 4) break;
 }
 
 console.log(startPos);
