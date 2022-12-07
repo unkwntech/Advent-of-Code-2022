@@ -104,7 +104,3 @@ for (let d of dirs) {
         break;
     }
 }
-
-console.log(dirs);
-
-debugger;
